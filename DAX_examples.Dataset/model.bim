@@ -63,7 +63,7 @@
       },
       {
         "name": "297e2ad0-a059-4774-ad07-eea9496b4f68",
-        "fromColumn": "Date",
+        "fromColumn": "Order Date",
         "fromTable": "Dates",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
@@ -71,9 +71,9 @@
       },
       {
         "name": "8b5df3e9-b1e0-4c21-8ac3-8885d2b0857c",
-        "fromColumn": "OrderDate",
+        "fromColumn": "Order Date",
         "fromTable": "Orders",
-        "toColumn": "Date",
+        "toColumn": "Order Date",
         "toTable": "Dates"
       }
     ],
@@ -370,7 +370,7 @@
         ],
         "columns": [
           {
-            "name": "Date",
+            "name": "Order Date",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -380,7 +380,7 @@
             "dataType": "dateTime",
             "formatString": "General Date",
             "isDataTypeInferred": true,
-            "isNameInferred": true,
+            "isNameInferred": false,
             "lineageTag": "203c25ee-2681-4a67-a330-b9d9b2f6824b",
             "sourceColumn": "[Date]",
             "summarizeBy": "none",
@@ -819,7 +819,7 @@
             "name": "LocalDateTable_dd0c98ea-2ecc-4f0a-afc2-7ffacade29c6-d91a4c66-c8cc-4bf2-9b2b-e16b30c9addc",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('Dates'[Date])), 1, 1), Date(Year(MAX('Dates'[Date])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('Dates'[Order Date])), 1, 1), Date(Year(MAX('Dates'[Order Date])), 12, 31))",
               "type": "calculated"
             }
           }
@@ -892,7 +892,7 @@
             ]
           },
           {
-            "name": "OrderDate",
+            "name": "Order Date",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -906,7 +906,7 @@
             "dataType": "dateTime",
             "formatString": "Long Date",
             "lineageTag": "35014d30-5b7e-48d9-a1a3-893d5127ed7a",
-            "sourceColumn": "OrderDate",
+            "sourceColumn": "Order Date",
             "summarizeBy": "none"
           },
           {
@@ -1002,8 +1002,8 @@
               "CALCULATE(",
               "\t[_OrderPriceUSD],",
               "\tFILTER(",
-              "\t\tALLSELECTED('Dates'[Date]),",
-              "\t\tISONORAFTER('Dates'[Date], MAX('Dates'[Date]), DESC)",
+              "\t\tALLSELECTED('Dates'[Order Date]),",
+              "\t\tISONORAFTER('Dates'[Order Date], MAX('Dates'[Order Date]), DESC)",
               "\t)",
               ")"
             ],
@@ -1029,9 +1029,10 @@
                 "let",
                 "    Source = Excel.Workbook(File.Contents(\"\\\\aspen.local\\DFSUsers$\\LDN\\RojeJ\\My Documents\\DataAnalysis\\Power BI Training\\Sample Data.xlsx\"), null, true),",
                 "    Orders_Table = Source{[Item=\"Orders\",Kind=\"Table\"]}[Data],",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(Orders_Table,{{\"Units\", Int64.Type}, {\"UnitPrice\", type number}, {\"Currency\", type text}, {\"OrderDate\", type date}, {\"DeliveryDate\", type date}, {\"CustomerID\", Int64.Type}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Orders_Table,{{\"Units\", Int64.Type}, {\"UnitPrice\", type number}, {\"Currency\", type text}, {\"OrderDate\", type date}, {\"DeliveryDate\", type date}, {\"CustomerID\", Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type\",{{\"OrderDate\", \"Order Date\"}})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Renamed Columns\""
               ],
               "type": "m"
             }
