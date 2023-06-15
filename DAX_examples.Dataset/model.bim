@@ -102,6 +102,19 @@
             "summarizeBy": "none"
           },
           {
+            "name": "Customer",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fd7dea2a-b9cc-4727-b0f1-04669c36c24f",
+            "sourceColumn": "Customer",
+            "summarizeBy": "none"
+          },
+          {
             "name": "CustomerID",
             "annotations": [
               {
@@ -113,19 +126,6 @@
             "formatString": "0",
             "lineageTag": "9f9deedd-7d4f-46e0-859d-6c8d18aaf359",
             "sourceColumn": "CustomerID",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "CustomerName",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "fd7dea2a-b9cc-4727-b0f1-04669c36c24f",
-            "sourceColumn": "CustomerName",
             "summarizeBy": "none"
           }
         ],
@@ -139,9 +139,10 @@
                 "let",
                 "    Source = Excel.Workbook(File.Contents(\"\\\\aspen.local\\DFSUsers$\\LDN\\RojeJ\\My Documents\\DataAnalysis\\Power BI Training\\Sample Data.xlsx\"), null, true),",
                 "    Customers_Table = Source{[Item=\"Customers\",Kind=\"Table\"]}[Data],",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(Customers_Table,{{\"CustomerID\", Int64.Type}, {\"CustomerName\", type text}, {\"City\", type text}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Customers_Table,{{\"CustomerID\", Int64.Type}, {\"CustomerName\", type text}, {\"City\", type text}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type\",{{\"CustomerName\", \"Customer\"}})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Renamed Columns\""
               ],
               "type": "m"
             }
