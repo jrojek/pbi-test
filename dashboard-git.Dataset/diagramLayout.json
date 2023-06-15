@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 666.4904761904761,
+            "y": 0
+          },
+          "nodeIndex": "fixtures",
+          "nodeLineageTag": "0c07be54-a50a-4faf-b376-24f71c10a2d8",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 90.493650793650772,
+            "y": 178.03174603174597
+          },
+          "nodeIndex": "lineups",
+          "nodeLineageTag": "5f7a30ad-e07f-4ce8-b8e4-40d2f5cd6f35",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 350.15873015873018,
+            "y": 0
+          },
+          "nodeIndex": "player_stats",
+          "nodeLineageTag": "edf0c766-c931-472e-8a28-f392c31a9965",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 699.8888888888888,
+            "y": 633.70000000000016
+          },
+          "nodeIndex": "players",
+          "nodeLineageTag": "7dd22687-34a0-4436-92fc-17d61949131e",
+          "size": {
+            "height": 247,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1156.0650793650793,
+            "y": 39.682539682539684
+          },
+          "nodeIndex": "teams",
+          "nodeLineageTag": "1b2b6bf7-8208-4106-b0c0-94440f331b44",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 914.05555555555532,
+            "y": 306.98412698412704
+          },
+          "nodeIndex": "events",
+          "nodeLineageTag": "5cbf2095-2831-4bf5-96b5-65288e52bff5",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 6
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 90,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
