@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../DAX_examples.Dataset"
+    },
+    "byConnection": null
+  }
+}
